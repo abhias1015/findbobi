@@ -42,6 +42,13 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem 'activeadmin', github: 'tagliala/activeadmin', branch: 'feature/railties-7' # FIXME: revert to stable
+
+gem 'arbre', github: 'activeadmin/arbre' # FIXME: remove
+gem 'inherited_resources', github: 'activeadmin/inherited_resources' # FIXME: remove
+
+gem 'sass-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
