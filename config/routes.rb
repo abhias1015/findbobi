@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :businesses
   ActiveAdmin.routes(self)
   
   resources :contact_requests

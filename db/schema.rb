@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_025513) do
+ActiveRecord::Schema.define(version: 2022_01_10_050846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 2022_01_10_025513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "businesses", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.boolean "is_owner"
+    t.boolean "is_approved"
+    t.string "location"
+    t.string "telephone"
+    t.string "website"
+    t.string "instagram"
+    t.time "opens_at"
+    t.time "closes_at"
+    t.bigint "business_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_type_id"], name: "index_businesses_on_business_type_id"
+  end
+
   create_table "contact_requests", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -44,4 +61,5 @@ ActiveRecord::Schema.define(version: 2022_01_10_025513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "businesses", "business_types"
 end

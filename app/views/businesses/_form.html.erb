@@ -1,0 +1,67 @@
+<%= form_with(model: business) do |form| %>
+  <% if business.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+        <% business.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :is_owner, style: "display: block" %>
+    <%= form.check_box :is_owner %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :telephone, style: "display: block" %>
+    <%= form.text_field :telephone %>
+  </div>
+
+  <div>
+    <%= form.label :website, style: "display: block" %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div>
+    <%= form.label :instagram, style: "display: block" %>
+    <%= form.text_field :instagram %>
+  </div>
+
+  <div>
+    <%= form.label :opens_at, style: "display: block" %>
+    <%= form.time_field :opens_at %>
+  </div>
+
+  <div>
+    <%= form.label :closes_at, style: "display: block" %>
+    <%= form.time_field :closes_at %>
+  </div>
+
+  <div>
+    <%= form.label :business_type_id, style: "display: block" %>
+    <%= form.text_field :business_type_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
