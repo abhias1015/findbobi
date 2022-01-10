@@ -23,14 +23,16 @@
     <header>
       <div class="headerContainer align-items-center container-md d-flex justify-content-between">
         <div class="logoContainer ml-1">
-          <a href="#"> <%= image_tag("BOBI.svg", :alt => "Logo", class: "logo") %></a>
+          <%= link_to root_path do %>
+            <%= image_tag("BOBI.svg", :alt => "Logo", class: "logo") %>
+          <% end %>
         </div>
         <div class="navLinks d-flex">
           <div class="navLink">
-            <a class="nav-link" href="./sites/registration.html">Registration</a>
+            <%= link_to "Registration", new_business_path, class: "nav-link" %>
           </div>
           <div class="navLink">
-            <a class="nav-link" href="./sites/contact.html">Contact us</a>
+            <%= link_to "Contact us", new_contact_request_path, class: "nav-link" %>
           </div>
         </div>
       </div>
