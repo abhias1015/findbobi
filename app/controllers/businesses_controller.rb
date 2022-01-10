@@ -1,5 +1,8 @@
 class BusinessesController < InheritedResources::Base
 
+  def home
+  end
+
   private
 
     def business_params
