@@ -1,67 +1,128 @@
-<%= form_with(model: business) do |form| %>
-  <% if business.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
-
-      <ul>
-        <% business.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="main container-md mb-5">
+  <div class="row justify-content-center">
+    <!-- The Head - on mobile top larger on left -->
+    <div class="col-md-5 registerHead">
+      <div class="row">
+        <div class="textRegister col-12">
+          <p>Register your service with us and be discovered by communities that matter to you</p>
+        </div>
+        <div class="imgRegister col-12 order-first order-md-0 my-5 my-md-0">
+          <%= image_tag("Bobi_group.svg", :alt => "Bobis") %>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="col-md-7 registerFormWrapper">
+      <%= form_with(model: business) do |form| %>
+        <% if business.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+            <ul>
+              <% business.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div>
-    <%= form.label :is_owner, style: "display: block" %>
-    <%= form.check_box :is_owner %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :name, class: "ml-5" %>
+            <%= form.text_field :name, class: "form-control", id: "nameBusiness" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :business_type_id, style: "display: block" %>
+            <%= form.text_field :business_type_id, class: "form-control", id: "typeBusinessReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :telephone, style: "display: block" %>
-    <%= form.text_field :telephone %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :email, class: "ml-5" %>
+            <%= form.text_field :email, class: "form-control", id: "mailReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :website, style: "display: block" %>
-    <%= form.text_field :website %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :location, class: "ml-5" %>
+            <%= form.text_field :location, class: "form-control", id: "locationReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :instagram, style: "display: block" %>
-    <%= form.text_field :instagram %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :telephone, class: "ml-5" %>
+            <%= form.text_field :telephone, class: "form-control", id: "telReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :opens_at, style: "display: block" %>
-    <%= form.time_field :opens_at %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :website, class: "ml-5" %>
+            <%= form.text_field :website, class: "form-control", id: "webReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :closes_at, style: "display: block" %>
-    <%= form.time_field :closes_at %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :instagram, class: "ml-5" %>
+            <%= form.text_field :instagram, class: "form-control", id: "socialMediaReg" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :business_type_id, style: "display: block" %>
-    <%= form.text_field :business_type_id %>
-  </div>
+        <div class="row g-0">
+          <div class="input-group mb-3">
+            <div class="form-floating col">
+              <%= form.time_field :opens_at, class: "form-control", id: "startHour" %>
+              <label for="startHour">Open from</label>
+            </div>
+            <div class="form-floating col">
+              <%= form.time_field :closes_at, class: "form-control", id: "closeHour" %>
+              <label for="closeHour">to</label>
+            </div>
+          </div>
+        </div>
 
-  <div>
-    <%= form.submit %>
+        <!-- <div class="row owner">
+          <div class="col-auto"></div>
+          <div class='col-auto'>
+            <small>Are you the owner?</small>
+          </div>
+          <div class="col-auto">
+            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+            <label class="btn btn-outline-dark btn-sm radioBtn" for="option1">YES</label>
+          </div>
+          <div class="col-auto">
+            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+            <label class="btn btn-outline-dark btn-sm radioBtn" for="option2">NO</label>
+          </div>
+        </div> -->
+
+        <div>
+          <%= form.label :is_owner, style: "display: block" %>
+          <%= form.check_box :is_owner %>
+        </div>
+
+        <!-- <div class="row justify-content-end mt-3 mb-5 align-items-center">
+          <div class="col-auto">
+            <label for="fileUp" class="customFileUpload"><span>&#8593;</span> Upload picture</label>
+            <input class="form-control" type="file" id="fileUp" accept="image/*">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary btn-small submitBtn">Send</button>
+          </div>
+        </div> -->
+
+        <div class="col-auto">
+          <%= form.submit %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-<% end %>
+</div>
