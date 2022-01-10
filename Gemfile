@@ -42,6 +42,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# ActiveAdmin solution here: https://github.com/activeadmin/activeadmin/issues/7196
 gem 'activeadmin', github: 'tagliala/activeadmin', branch: 'feature/railties-7' # FIXME: revert to stable
 
 gem 'arbre', github: 'activeadmin/arbre' # FIXME: remove
