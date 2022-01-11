@@ -1,3 +1,108 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Findbobi homepage</h1>
+<div class="main container-fluid mb-5">
+  <div class="teaser d-flex flex-column justify-content-center align-items-center">
+    <h1>Hello</h1>
+    <form class="searchForm">
+      <div class="input-group mb-3 flex-wrap justify-content-center">
+        <input type="text" class="form-control mb-3" placeholder="What" aria-label="Username">
+        <input type="text" class="form-control mb-3" placeholder="Where" aria-label="Where">
+        <input type="text" class="form-control mb-3" placeholder="Tags" aria-label="Tags">
+        <select class="form-select mb-3" id="inputGroupSelect">
+          <option selected>Language</option>
+          <option value="1">English</option>
+          <option value="2">German</option>
+          <option value="3">French</option>
+        </select>
+        <span class="input-group-text mb-3">
+          <button type="submit" class="btn btn-primary btn-small submitBtn">
+            <i class="bi bi-search"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<<style media="screen">
+  body {
+  background-color: white;
+}
+
+.main {
+  flex-grow: 0;
+}
+
+.teaser {
+  height: 1000px;
+  width: 100vw;
+  background-image: image-url('img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.teaser h1 {
+  margin-top: 40px;
+  font-family: sans-serif;
+  font-size: 35rem;
+  font-weight: 1000;
+  color: #385aef;
+  -webkit-text-fill-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #385aef;
+}
+
+.teaser .searchForm {
+  position: absolute;
+  top: 20%
+}
+
+
+.teaser .searchForm input:first-of-type {
+  border-radius: 30px;
+}
+
+.teaser .searchForm .input-group-text {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.teaser .searchForm input {
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.teaser .searchForm select {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+
+.teaser .searchForm select {
+  color: gray;
+}
+
+.teaser .searchForm button {
+  border-radius: 30px;
+}
+
+
+@media (min-width: 576px) {
+  .teaser h1 {
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .teaser h1 {
+
+  }
+}
+</style>
