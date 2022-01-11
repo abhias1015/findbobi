@@ -1,37 +1,65 @@
-<%= form_with(model: contact_request) do |form| %>
-  <% if contact_request.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(contact_request.errors.count, "error") %> prohibited this contact_request from being saved:</h2>
-
-      <ul>
-        <% contact_request.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="main container-md mb-5">
+  <div class="row justify-content-center">
+    <!-- The Head - on mobile top larger on left -->
+    <div class="col-md-5 registerHead">
+      <div class="row">
+        <div class="textRegister col-12">
+          <p>Contact us</p>
+        </div>
+        <div class="imgRegister col-12 order-first order-md-0 my-5 my-md-0">
+          <%= image_tag("Bobi_message.svg", :alt => "Bobis") %>
+          <!-- <img src="../assets/Bobi message.svg" style="height: 240px;"> -->
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <!-- The main part on larger screen right side -->
+    <div class="col-md-7 registerFormWrapper">
+      <%= form_with(model: contact_request) do |form| %>
+        <% if contact_request.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(contact_request.errors.count, "error") %> prohibited this contact_request from being saved:</h2>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+            <ul>
+              <% contact_request.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div>
-    <%= form.label :subject, style: "display: block" %>
-    <%= form.text_field :subject %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :name, class: "ml-5" %>
+            <%= form.text_field :name, class: "form-control", id: "contactName" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.label :message, style: "display: block" %>
-    <%= form.text_area :message %>
-  </div>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :email, class: "ml-5" %>
+            <%= form.text_field :email, class: "form-control", id: "mailContact" %>
+          </div>
+        </div>
 
-  <div>
-    <%= form.submit %>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :subject, class: "ml-5" %>
+            <%= form.text_field :subject, class: "form-control", id: "subjectContact" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.label :message, class: "ml-5" %>
+            <%= form.text_area :message, class: "form-control", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

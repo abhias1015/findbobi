@@ -1,0 +1,16 @@
+<svg width="206" height="245" viewBox="0 0 206 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:multiply">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M143.5 0C178.018 0 206 27.7583 206 62C206 96.2417 178.018 124 143.5 124C141.681 124 139.88 123.923 138.101 123.772C131.684 98.5661 109.707 79.5036 82.8991 77.2281C81.6589 72.356 81 67.2543 81 62C81 27.7583 108.982 0 143.5 0ZM82.8991 77.2281C81.1197 77.0771 79.3189 77 77.5 77C42.9822 77 15 104.758 15 139C15 173.242 42.9822 201 77.5 201C112.018 201 140 173.242 140 139C140 133.746 139.341 128.644 138.101 123.772C111.293 121.496 89.3156 102.434 82.8991 77.2281Z" fill="#F4D949"/>
+</g>
+<path d="M125.645 83V66.928H140.485V83H151.069V42.792H140.485V57.744H125.645V42.792H115.061V83H125.645ZM169 45.872C169 42.68 166.48 40.384 162.84 40.384C159.2 40.384 156.68 42.68 156.68 45.872C156.68 49.008 159.2 51.304 162.84 51.304C166.48 51.304 169 49.008 169 45.872ZM167.712 83V52.872H158.136V83H167.712Z" fill="#4B5DFF"/>
+<path d="M79 194V241" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M79 241H98" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M61 199V243" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M41 243H60" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M65.0308 143.138C68.5 149.5 80 150.5 83.7631 143.165" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M69.9203 132.346C68.4119 130.106 65.926 129.822 63.995 131.753" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M84.9085 132.346C83.4002 130.106 80.9143 129.822 78.9833 131.753" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M4.54379 129.085C-0.65306 143.506 6.38643 155.843 21.707 158.208" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M145.474 177.53C134.535 188.267 120.386 187.013 111.847 174.075" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M145.578 194.177C145.578 163.962 146.585 103.536 146.585 103.536" stroke="#4B5DFF" stroke-width="3" stroke-linecap="round"/>
+</svg>
