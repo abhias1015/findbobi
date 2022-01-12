@@ -48,6 +48,8 @@ gem 'activeadmin', github: 'tagliala/activeadmin', branch: 'feature/railties-7' 
 gem 'arbre', github: 'activeadmin/arbre' # FIXME: remove
 gem 'inherited_resources', github: 'activeadmin/inherited_resources' # FIXME: remove
 
+gem 'devise'
+
 gem 'sass-rails'
 
 # Use Sass to process CSS
