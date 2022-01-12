@@ -8,7 +8,7 @@ class BusinessesController < InheritedResources::Base
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to business_url(@business), notice: "Business was successfully created." }
+        format.html { redirect_to root_url, notice: "Business was successfully created." }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -25,7 +25,7 @@ class ContactRequestsController < ApplicationController
 
     respond_to do |format|
       if @contact_request.save
-        format.html { redirect_to contact_request_url(@contact_request), notice: "Contact request was successfully created." }
+        format.html { redirect_to root_url, notice: "Contact request was successfully created." }
         format.json { render :show, status: :created, location: @contact_request }
       else
         format.html { render :new, status: :unprocessable_entity }
