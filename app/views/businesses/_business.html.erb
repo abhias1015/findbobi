@@ -49,4 +49,11 @@
     <%= business.business_type_id %>
   </p>
 
+  <p>
+    <strong>Avatar</strong>
+    <% if business.avatar.attached? %>
+      <%= image_tag business.avatar %>
+    <% end %>
+  </p>
+
 </div>
