@@ -52,6 +52,8 @@ gem 'devise'
 
 gem 'sass-rails'
 
+gem 'acts-as-taggable-on'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
