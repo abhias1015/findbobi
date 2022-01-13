@@ -1,14 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Businesses</h1>
-
 <div id="businesses">
-  <% @businesses.each do |business| %>
-    <%= render business %>
-    <p>
-      <%= link_to "Show this business", business %>
-    </p>
-  <% end %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <% @businesses.each do |business| %>
+        <%= render business %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New business", new_business_path %>
