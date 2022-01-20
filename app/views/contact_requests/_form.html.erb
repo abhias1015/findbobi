@@ -56,8 +56,10 @@
           </div>
         </div>
 
-        <div>
-          <%= form.submit %>
+        <div class="row justify-content-end mt-3 mb-5 align-items-center">
+            <div class="col-auto">
+              <%= form.submit "Send", :class => 'btn btn-primary btn-small submitBtn' %>    
+            </div>
         </div>
       <% end %>
     </div>
