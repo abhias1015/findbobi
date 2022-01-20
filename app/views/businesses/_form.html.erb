@@ -123,18 +123,18 @@
           </div>
         </div>
 
-        <!-- <div class="row justify-content-end mt-3 mb-5 align-items-center flex-nowrap">
+        <div class="row justify-content-end mt-3 mb-5 align-items-center flex-nowrap">
           <div class="col-auto">
             <label for="fileUp" class="customFileUpload"><span>&#8593;</span> Upload picture</label>
             <input class="form-control" type="file" id="fileUp" accept="image/*">
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary btn-small submitBtn">Send</button>
-          </div>
-        </div> -->
+            <%= form.submit 'Send', :class => 'btn btn-primary btn-small submitBtn' %>
+          
+            </div>
+        </div>
 
         <div class="col-auto">
-          <%= form.submit %>
         </div>
       <% end %>
 
