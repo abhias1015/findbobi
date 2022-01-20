@@ -20,12 +20,12 @@
     <title>Findbobi</title>
   </head>
 
-  <body>
+  <body class="body">
     <header>
       <div class="headerContainer align-items-center container-md d-flex justify-content-between">
         <div class="logoContainer ml-1">
           <%= link_to root_path do %>
-            <%= image_tag("BOBI.svg", :alt => "Logo", class: "logo") %>
+            <%= image_tag("Logo_FINDBOBI.svg", :alt => "Logo", class: "logo") %>
           <% end %>
         </div>
         <div class="navLinks d-flex">
@@ -45,7 +45,7 @@
       <div class="container-md">
         <div class="row justify-content-center ">
          <div class="col-md-3 mt-5">
-           <h2>Findbobi</h2>
+         <%= image_tag("Logo_FINDBOBI.svg", :alt => "Logo", class: "logoFooter") %>
          </div>
 
           <div class="col-md-3 mt-5">
@@ -82,9 +82,11 @@
 </html>
 
 <style media="screen">
-  body {
-  background-color: #e5e5e5;
+  
+body {
+  background-color: #4B5DFF;
   height: 100vh;
+  width: 100vw;
   font-size: 100%;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -104,7 +106,7 @@ header {
   height: 100%;
 }
 .logo {
-  width: 110px;
+  width: 210px;
   height: 35px;
 }
 
@@ -125,14 +127,14 @@ header .active::after {
 }
 
 
-.main {
-    flex-grow: 0;
-}
-
 .registerHead {
   font-size: 2.5rem;
-  color: #385aef;
+  color: black;
   font-weight: 700;
+}
+
+.registerHead #bobiCrew {
+  width: 80%
 }
 
 .registerFormWrapper .form-control[type="text"],
@@ -141,12 +143,9 @@ header .active::after {
   padding-left: 20px;
 }
 
-.owner div:nth-of-type(3) {
-  margin-left: -20px;
-}
 
-.owner div:last-of-type {
-  margin-left: -20px;
+.owner div:first-of-type {
+  margin-left: 30px;
 }
 
 .registerFormWrapper .radioBtn {
@@ -157,8 +156,8 @@ header .active::after {
 }
 
 .registerFormWrapper #startHour {
-  border-bottom-left-radius: 90px;
   border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
   padding-left: 20px;
 }
 
@@ -210,9 +209,11 @@ header .active::after {
   color: blue;
 }
 
+
+
 footer {
   width: 100%;
-  color: #385aef;
+  color: black;
   background-color: #ffffff;
   flex-grow: 1;
 }
@@ -238,11 +239,46 @@ footer ul li {
   margin-bottom: 15px;
 }
 
-@media (min-width: 769px) {
+footer .logoFooter {
+  width: 130px;
+  height: 24px;
+}
+
+@media (max-width: 576px) {
+  .registerHead {
+    text-align: left;
+    padding: 20px
+  }
+}
+
+
+@media (min-width: 576px) {
   .main {
     margin-top: 80px;
   }
 
+}
+
+
+@media (min-width: 573px) and (max-width: 611px) {
+  .registerFormWrapper #startHour {
+    border-radius: 90px;
+    padding-left: 20px;
+  }
+
+  .registerFormWrapper #closeHour {
+    border-radius: 90px;
+    border-radius: 90px;
+  }
+}
+
+@media (min-width:576px) and (max-width: 998px) {
+  .registerHead #bobiCrew {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
   .taggedInput input:focus ~ #helpBox {
     display: block;
     width: 129px;
@@ -256,9 +292,12 @@ footer ul li {
   }
 }
 
+
 @media (min-width: 1000px) {
   .textRegister {
     width: 70%;
   }
 }
+
+
 </style>

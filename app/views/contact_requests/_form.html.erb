@@ -1,7 +1,7 @@
 <div class="main container-md mb-5">
   <div class="row justify-content-center">
     <!-- The Head - on mobile top larger on left -->
-    <div class="col-md-5 registerHead">
+    <div class="col-md-5 col-sm-4 registerHead">
       <div class="row">
         <div class="textRegister col-12">
           <p>Contact us</p>
@@ -14,8 +14,8 @@
     </div>
 
     <!-- The main part on larger screen right side -->
-    <div class="col-md-7 registerFormWrapper">
-      <%= form_with(model: contact_request) do |form| %>
+    <div class="col-md-7 col-sm-8 registerFormWrapper">
+      <%= form_with(model: contact_request, class: "registerForm") do |form| %>
         <% if contact_request.errors.any? %>
           <div style="color: red">
             <h2><%= pluralize(contact_request.errors.count, "error") %> prohibited this contact_request from being saved:</h2>
@@ -30,29 +30,29 @@
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.label :name, class: "ml-5" %>
             <%= form.text_field :name, class: "form-control", id: "contactName" %>
+            <%= form.label :name, class: "ml-5" %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.label :email, class: "ml-5" %>
             <%= form.text_field :email, class: "form-control", id: "mailContact" %>
+            <%= form.label :email, class: "ml-5" %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.label :subject, class: "ml-5" %>
             <%= form.text_field :subject, class: "form-control", id: "subjectContact" %>
+            <%= form.label :subject, class: "ml-5" %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.label :message, class: "ml-5" %>
             <%= form.text_area :message, class: "form-control", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
+            <%= form.label :message, class: "ml-5" %>
           </div>
         </div>
 
