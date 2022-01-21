@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<div class="main container-fluid mb-5">
+<!-- <p style="color: green"><%= notice %></p> -->
+<div class="main container-fluid mb-5 noPadding">
   <div class="teaser d-flex flex-column justify-content-center align-items-center">
+    <div class="box">
+            <%= image_tag("img.png", :alt => "Teaser Picture", class: "teaserPic") %>
+    </div>
     <h1>Hello</h1>
-    <form class="searchForm">
-      <div class="input-group mb-3 flex-wrap justify-content-center">
+    <form class="searchForm searchFull">
+      <div class="input-group mb-3 flex-nowrap justify-content-center">
         <input type="text" class="form-control mb-3" placeholder="What" aria-label="Username">
         <input type="text" class="form-control mb-3" placeholder="Where" aria-label="Where">
         <input type="text" class="form-control mb-3" placeholder="Tags" aria-label="Tags">
@@ -21,6 +23,33 @@
         </span>
       </div>
     </form>
+
+    <form class="searchForm searchMobile">
+      <div class="row">
+        <div class=" mb-3">
+            <input type="text" placeholder="What" class="form-control" aria-describedby="Username">
+          </div>
+         </div>
+        <div class="row">
+           <div class="mb-3">
+            <input type="text" placeholder="Where" class="form-control" aria-describedby="Where">
+           </div>
+        </div>
+        <div class="row">
+           <div class="mb-3">
+             <input type="text" placeholder="Tags" class="form-control" aria-describedby="Tags">
+           </div>
+        </div>
+        <select class="form-select mb-3" id="inputGroupSelect">
+          <option selected>Language</option>
+          <option value="1">English</option>
+          <option value="2">German</option>
+          <option value="3">French</option>
+        </select>
+        <button type="submit" class="btn btn-primary btn-small submitBtn">
+            Search
+        </button>
+    </form>
   </div>
 </div>
 
@@ -34,19 +63,24 @@
   flex-grow: 0;
 }
 
+.noPadding {
+  padding: 0 !important;
+}
+
 .teaser {
-  height: 1000px;
+  min-height: 710px;
   width: 100vw;
-  background-image: image-url('img.png');
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
 
 .teaser h1 {
+  position: relative;
+  z-index: 100;
   margin-top: 40px;
   font-family: sans-serif;
-  font-size: 35rem;
+  font-size: 30vw;
   font-weight: 1000;
   color: #385aef;
   -webkit-text-fill-color: rgba(
@@ -59,13 +93,32 @@
   -webkit-text-stroke-color: #385aef;
 }
 
+.teaser .box {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: black;
+  z-index: 0;
+}
+
+.teaser .box .teaserPic{
+  width: 100vw;
+  min-width: 1420px;
+  overflow: hidden;
+
+
+}
+
 .teaser .searchForm {
   position: absolute;
-  top: 20%
+  margin-left: 50px;
+  margin-right: 50px;
+  top: 40%;
+  z-index: 200;
 }
 
 
-.teaser .searchForm input:first-of-type {
+.teaser .searchForm input {
   border-radius: 30px;
 }
 
@@ -75,34 +128,68 @@
 }
 
 .teaser .searchForm input {
-  min-width: 300px;
+  min-width: 200px;
   max-width: 300px;
 }
 
 .teaser .searchForm select {
-    min-width: 300px;
+    min-width: 200px;
     max-width: 300px;
+    color: gray;
+    border-radius: 30px;
+
   }
 
-
-.teaser .searchForm select {
-  color: gray;
-}
 
 .teaser .searchForm button {
   border-radius: 30px;
 }
 
+.searchMobile button {
+  width: 300px;
+  min-width: 200px;
+}
+
 
 @media (min-width: 576px) {
+}
+
+
+@media (max-width: 900px) {
+  .searchFull {
+    display: none
+  }
+
   .teaser h1 {
+    margin-top: 300px  }
+
+}
+
+@media (min-width: 901px) {
+  .searchMobile {
+    display: none
   }
 }
 
 
-@media (min-width: 1000px) {
-  .teaser h1 {
 
+@media (max-width: 1420px) {
+  .teaser .box .teaserPic{
+    transform: translateX(calc(100vw - 1420px))
   }
 }
+
+@media (max-width: 740px) {
+  .teaser .box .teaserPic{
+    transform: translateX(-680px)
+  }
+}
+
+@media (max-width: 380px) {
+  .teaser .box .teaserPic{
+    transform: translateX(-800px)
+  }
+}
+
+
 </style>
