@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :contact_requests
+  resources :contact_requests do
+    collection do
+      get :accepted
+    end
+  end
+  
   resources :businesses do
     collection do
       get :home, :search, :accepted

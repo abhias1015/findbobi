@@ -11,6 +11,11 @@ class BusinessesController < InheritedResources::Base
 
   end
 
+  def new
+    @business = Business.new
+    @business_types = BusinessType.all
+  end
+
   def create
     @business = Business.new(business_params)
 

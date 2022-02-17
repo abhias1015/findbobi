@@ -25,13 +25,17 @@ class ContactRequestsController < ApplicationController
 
     respond_to do |format|
       if @contact_request.save
-        format.html { redirect_to root_url, notice: "Contact request was successfully created." }
+        format.html { redirect_to accepted_contact_requests_url, notice: "Contact request was successfully created." }
         format.json { render :show, status: :created, location: @contact_request }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @contact_request.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def accepted
+
   end
 
   # PATCH/PUT /contact_requests/1 or /contact_requests/1.json
