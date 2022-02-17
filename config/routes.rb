@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :contact_requests
   resources :businesses do
     collection do
-      get :home, :search
+      get :home, :search, :accepted
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

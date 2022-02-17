@@ -3,7 +3,7 @@ class CreateBusinesses < ActiveRecord::Migration[7.0]
     create_table :businesses do |t|
       t.string :name
       t.string :email
-      t.boolean :is_owner
+      t.boolean :is_owner, default: true
       t.boolean :is_approved
       t.string :location
       t.string :telephone

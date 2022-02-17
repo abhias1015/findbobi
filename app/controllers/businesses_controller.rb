@@ -7,12 +7,16 @@ class BusinessesController < InheritedResources::Base
     console
   end
 
+  def accepted
+
+  end
+
   def create
     @business = Business.new(business_params)
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to root_url, notice: "Business was successfully created." }
+        format.html { redirect_to accepted_businesses_url, notice: "Business was successfully created." }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new, status: :unprocessable_entity }
