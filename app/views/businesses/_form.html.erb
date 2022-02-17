@@ -70,7 +70,7 @@
 
         <div class="row g-0">
           <div class="input-group mb-3 flex-wrap">
-            <div class="form-floating col mb-3" >
+            <div class="form-floating col" >
               <%= form.time_field :opens_at, class: "form-control", id: "startHour" %>
               <label for="startHour">Open from</label>
             </div>
@@ -126,18 +126,11 @@
         <div class="row justify-content-end mt-3 mb-5 align-items-center flex-nowrap">
           <div class="col-auto">
             <label for="fileUp" class="customFileUpload"><span>&#8593;</span> Upload picture</label>
-            <input class="form-control" type="file" id="fileUp" accept="image/*">
+            <%= form.file_field :avatar, accept: 'image/png,image/jpeg', class: "form-control", id: "fileUp" %>
           </div>
           <div class="col-auto">
             <%= form.submit 'Send', :class => 'btn btn-primary btn-small submitBtn' %>
           </div>
-        </div>
-
-        <div>
-          <%= form.file_field :avatar %>
-        </div>
-
-        <div class="col-auto">
         </div>
       <% end %>
 
