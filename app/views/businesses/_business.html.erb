@@ -5,14 +5,22 @@
     <% else %>
       <%= image_tag("avatar_green_bg.png", :alt => "avatar", :class => "rounded-circle") %>
     <% end %>
-    <h3 class="name"><%= business.name %></h3>
-    <p class="title"><%= business.business_type&.name %></p>
+    <div class="text_block">
+      <p class="name"><%= business.name %></p>
+      <p class="title"><%= business.business_type&.name %></p>
     <div class="social">
-      <a href=<%= business.telephone %>><i class="bi bi-telephone"></i></a>
-      <a href=<%= business.email %>><i class="bi bi-envelope"></i></a>
-      <a href=<%= business.website %>><i class="bi bi-globe"></i></a>
+      <a href=<%= "tel:#{business.email}" %>><i class="bi bi-telephone"></i></a>
+      <a href=<%= "mailto:#{business.email}" %>><i class="bi bi-envelope"></i></a>
+      <a href=<%= business.website %> target="_blank"><i class="bi bi-globe"></i></a>
       <a href="#"><i class="bi bi-arrow-90deg-right"></i></a>
       <a href=<%= business.location %>><i class="bi bi-arrow-up-right"></i></a>
+    </div>
+
+    <div class="tags">
+      <% business.tags_and_language_names&.each do |tag_name| %>
+        <span class="badge tag"><%= tag_name %></span>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>

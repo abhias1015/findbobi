@@ -11,4 +11,9 @@ class Business < ApplicationRecord
   validates :telephone, :presence => true,
                         :numericality => true,
                         :length => { :minimum => 10, :maximum => 15 }
+
+
+  def tags_and_language_names
+    tags&.map(&:name) + languages.map(&:name)
+  end
 end
