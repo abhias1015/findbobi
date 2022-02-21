@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_144411) do
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.boolean "is_owner"
+    t.boolean "is_owner", default: true
     t.boolean "is_approved"
     t.string "location"
     t.string "telephone"
