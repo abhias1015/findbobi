@@ -8,7 +8,6 @@
         </div>
         <div class="imgRegister col-12 order-first order-md-0 my-5 my-md-0">
           <%= image_tag("Bobi_message.svg", :alt => "Bobis") %>
-          <!-- <img src="../assets/Bobi message.svg" style="height: 240px;"> -->
         </div>
       </div>
     </div>
@@ -51,14 +50,14 @@
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.text_area :message, class: "form-control", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
+            <%= form.text_area :message, class: "form-control rediusTextArea", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
             <%= form.label :message, class: "ml-5" %>
           </div>
         </div>
 
         <div class="row justify-content-end mt-3 mb-5 align-items-center">
             <div class="col-auto">
-              <%= form.submit "Send", :class => 'btn btn-primary btn-small submitBtn' %>    
+              <%= form.submit "Send", :class => 'btn btn-primary btn-small submitBtn' %>
             </div>
         </div>
       <% end %>
@@ -69,3 +68,13 @@
   document.body.style.backgroundColor ="#4B5DFF"
   document.getElementById("nav-link-contact").classList.add('active')
 </script>
+
+<style media="screen">
+  .rediusTextArea {
+    border-radius: 16px;
+  }
+
+  .main {
+    margin-top: 50px;
+  }
+</style>
