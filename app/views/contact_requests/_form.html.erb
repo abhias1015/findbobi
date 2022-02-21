@@ -24,7 +24,7 @@
 
             <% if error_message(:name).present? %>
               <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                <%= image_tag("error_icon.svg", :alt => "Bobis") %>
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
                 <span class="help-block errorMessage"> <%= error_message(:name) %> </span>
               </div>
             <% end %>
@@ -38,7 +38,7 @@
 
             <% if error_message(:email).present? %>
               <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                <%= image_tag("error_icon.svg", :alt => "Bobis") %>
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
                 <span class="help-block errorMessage"> <%= error_message(:email) %> </span>
               </div>
             <% end %>
@@ -50,7 +50,10 @@
             <%= form.text_field :subject, class: "form-control #{invalid_class?(:subject)}", id: "subjectContact", required: "required" %>
             <%= form.label :subject, class: "ml-5" %>
             <% if error_message(:subject).present? %>
-              <span class="help-block errorMessage"> <%= error_message(:subject) %> </span>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:subject) %> </span>
+              </div>
             <% end %>
           </div>
         </div>
@@ -60,7 +63,10 @@
             <%= form.text_area :message, required: "required", class: "form-control rediusTextArea #{invalid_class?(:message)}", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
             <%= form.label :message, class: "ml-5" %>
             <% if error_message(:message).present? %>
-              <span class="help-block errorMessage"> <%= error_message(:message) %> </span>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:message) %> </span>
+              </div>
             <% end %>
           </div>
         </div>
