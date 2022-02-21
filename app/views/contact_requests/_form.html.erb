@@ -21,7 +21,6 @@
             <%= form.text_field :name, class: "form-control #{invalid_class?(:name)}", id: "contactName", required: "required" %>
             <%= form.label :name, class: "ml-5" %>
 
-
             <% if error_message(:name).present? %>
               <div class="col-12 order-first order-md-0 my-5 my-md-0">
                 <%= image_tag("error_icon.svg", :alt => "error_icon") %>
