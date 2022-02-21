@@ -44,7 +44,7 @@
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.text_field :business_type_id, class: "form-control #{business_invalid_class?(:business_type)}", id: "typeBusinessReg" %>
+            <%= form.select :business_type_id, BusinessType.all.map { |bt| [bt.name, bt.id] }, {}, { class: "form-select #{business_invalid_class?(:business_type)}", id: "typeBusinessReg" } %>
             <%= form.label :business_type_id, style: "display: block" %>
 
             <% if business_error_message(:business_type).present? %>
@@ -59,7 +59,7 @@
         <div class="row">
           <div class="form-floating mb-3 taggedInput">
             <%= form.text_field :tag_list, class: "form-control #{business_invalid_class?(:tags)}", id: "tagBusinessReg" %>
-            <label for="tagBusinessReg">Describe business</label>
+            <label for="tagBusinessReg">Attribute/Community</label>
             <div class="mt-3"id="helpBox">Hey there! Your business atributes will be treated like tags. You can separate them by
               comma or space.</div>
 
@@ -183,13 +183,6 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="form-floating mb-3">
-            <%= form.text_field :tag_list, class: "form-control #{business_invalid_class?(:name)}", id: "socialMediaReg" %>
-            <%= form.label :tag_list %>
-          </div>
-        </div>
-
         <div class="row justify-content-end mt-3 mb-5 align-items-center flex-nowrap">
           <div class="col-auto">
             <label for="fileUp" class="customFileUpload"><span>&#8593;</span> Upload picture</label>
@@ -213,6 +206,11 @@
 <style media="screen">
   .main {
     margin-top: 50px;
+  }
+
+  .form-select {
+    border-radius: 96px;
+    padding-left: 20px;
   }
 
   .errorMessage {
