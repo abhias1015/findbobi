@@ -5,51 +5,9 @@
             <%= image_tag("img.png", :alt => "Teaser Picture", class: "teaserPic") %>
     </div>
     <h1>Hello</h1>
-    <form class="searchForm searchFull">
-      <div class="input-group mb-3 flex-nowrap justify-content-center">
-        <input type="text" class="form-control mb-3" placeholder="What" aria-label="Username">
-        <input type="text" class="form-control mb-3" placeholder="Where" aria-label="Where">
-        <input type="text" class="form-control mb-3" placeholder="Tags" aria-label="Tags">
-        <select class="form-select mb-3" id="inputGroupSelect">
-          <option selected>Language</option>
-          <option value="1">English</option>
-          <option value="2">German</option>
-          <option value="3">French</option>
-        </select>
-        <span class="input-group-text mb-3">
-          <button type="submit" class="btn btn-primary btn-small submitBtn">
-            <i class="bi bi-search"></i>
-          </button>
-        </span>
-      </div>
-    </form>
 
-    <form class="searchForm searchMobile">
-      <div class="row">
-        <div class=" mb-3">
-            <input type="text" placeholder="What" class="form-control" aria-describedby="Username">
-          </div>
-         </div>
-        <div class="row">
-           <div class="mb-3">
-            <input type="text" placeholder="Where" class="form-control" aria-describedby="Where">
-           </div>
-        </div>
-        <div class="row">
-           <div class="mb-3">
-             <input type="text" placeholder="Tags" class="form-control" aria-describedby="Tags">
-           </div>
-        </div>
-        <select class="form-select mb-3" id="inputGroupSelect">
-          <option selected>Language</option>
-          <option value="1">English</option>
-          <option value="2">German</option>
-          <option value="3">French</option>
-        </select>
-        <button type="submit" class="btn btn-primary btn-small submitBtn">
-            Search
-        </button>
-    </form>
+    <%= render partial: 'search_form' %>
+
   </div>
 
   <%= render "home_categories" %>

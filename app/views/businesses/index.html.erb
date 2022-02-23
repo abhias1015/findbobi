@@ -1,4 +1,7 @@
 <div class="main container-md mb-5">
+  <div class="container">
+    <%= render :partial => 'search_form' %>
+  </div>
   <div class="team-boxed">
     <div class="container">
       <% @businesses.in_groups_of(3).each do |business_chunk| %>
