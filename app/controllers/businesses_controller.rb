@@ -1,5 +1,16 @@
 class BusinessesController < InheritedResources::Base
 
+  def index
+    if search_params.present?
+      @businesses = Business.list_records(search_params[:what],
+                                          search_params[:where],
+                                          search_params[:tags],
+                                          search_params[:languages])
+    else
+      @businesses = Business.all
+    end
+  end
+
   def home
   end
 
@@ -35,6 +46,10 @@ class BusinessesController < InheritedResources::Base
 
     def business_params
       params.require(:business).permit(:name, :email, :is_owner, :location, :telephone, :website, :instagram, :opens_at, :closes_at, :business_type_id, :tag_list, :language_list, :avatar)
+    end
+
+    def search_params
+      params.permit(:what, :where, :tags, :languages)
     end
 
 end

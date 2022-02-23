@@ -5,51 +5,9 @@
             <%= image_tag("img.png", :alt => "Teaser Picture", class: "teaserPic") %>
     </div>
     <h1>Hello</h1>
-    <form class="searchForm searchFull">
-      <div class="input-group mb-3 flex-nowrap justify-content-center">
-        <input type="text" class="form-control mb-3" placeholder="What" aria-label="Username">
-        <input type="text" class="form-control mb-3" placeholder="Where" aria-label="Where">
-        <input type="text" class="form-control mb-3" placeholder="Tags" aria-label="Tags">
-        <select class="form-select mb-3" id="inputGroupSelect">
-          <option selected>Language</option>
-          <option value="1">English</option>
-          <option value="2">German</option>
-          <option value="3">French</option>
-        </select>
-        <span class="input-group-text mb-3">
-          <button type="submit" class="btn btn-primary btn-small submitBtn">
-            <i class="bi bi-search"></i>
-          </button>
-        </span>
-      </div>
-    </form>
 
-    <form class="searchForm searchMobile">
-      <div class="row">
-        <div class=" mb-3">
-            <input type="text" placeholder="What" class="form-control" aria-describedby="Username">
-          </div>
-         </div>
-        <div class="row">
-           <div class="mb-3">
-            <input type="text" placeholder="Where" class="form-control" aria-describedby="Where">
-           </div>
-        </div>
-        <div class="row">
-           <div class="mb-3">
-             <input type="text" placeholder="Tags" class="form-control" aria-describedby="Tags">
-           </div>
-        </div>
-        <select class="form-select mb-3" id="inputGroupSelect">
-          <option selected>Language</option>
-          <option value="1">English</option>
-          <option value="2">German</option>
-          <option value="3">French</option>
-        </select>
-        <button type="submit" class="btn btn-primary btn-small submitBtn">
-            Search
-        </button>
-    </form>
+    <%= render :partial => 'search_form' %>
+    
   </div>
 </div>
 
@@ -105,88 +63,45 @@
     width: 100vw;
     min-width: 1420px;
     overflow: hidden;
-
-
-  }
-
-  .teaser .searchForm {
-    position: absolute;
-    margin-left: 50px;
-    margin-right: 50px;
-    top: 40%;
-    z-index: 200;
   }
 
 
-  .teaser .searchForm input {
-    border-radius: 30px;
-  }
-
-  .teaser .searchForm .input-group-text {
-    background-color: white;
-    border-radius: 30px;
-  }
-
-  .teaser .searchForm input {
-    min-width: 200px;
-    max-width: 300px;
-  }
-
-  .teaser .searchForm select {
-    min-width: 200px;
-    max-width: 300px;
-    color: gray;
-    border-radius: 30px;
-
+  @media (min-width: 576px) {
   }
 
 
-.teaser .searchForm button {
-  border-radius: 30px;
-}
+  @media (max-width: 900px) {
+    .searchFull {
+      display: none
+    }
 
-.searchMobile button {
-  width: 300px;
-  min-width: 200px;
-}
+    .teaser h1 {
+      margin-top: 300px  }
 
-
-@media (min-width: 576px) {
-}
-
-
-@media (max-width: 900px) {
-  .searchFull {
-    display: none
   }
 
-  .teaser h1 {
-    margin-top: 300px  }
-
-}
-
-@media (min-width: 901px) {
-  .searchMobile {
-    display: none
+  @media (min-width: 901px) {
+    .searchMobile {
+      display: none
+    }
   }
 
 
-
-@media (max-width: 1420px) {
-  .teaser .box .teaserPic{
-    transform: translateX(calc(100vw - 1420px))
+  @media (max-width: 1420px) {
+    .teaser .box .teaserPic{
+      transform: translateX(calc(100vw - 1420px))
+    }
   }
-}
 
-@media (max-width: 740px) {
-  .teaser .box .teaserPic{
-    transform: translateX(-680px)
+  @media (max-width: 740px) {
+    .teaser .box .teaserPic{
+      transform: translateX(-680px)
+    }
   }
-}
 
-@media (max-width: 380px) {
-  .teaser .box .teaserPic{
-    transform: translateX(-800px)
+  @media (max-width: 380px) {
+    .teaser .box .teaserPic{
+      transform: translateX(-800px)
+    }
   }
-}
 </style>
