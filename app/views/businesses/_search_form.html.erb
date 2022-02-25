@@ -1,9 +1,11 @@
 <%= form_tag(businesses_path, method: :get, class: "searchForm searchFull") do %>
   <div class="input-group mb-3 flex-nowrap justify-content-center">
-    <%= text_field_tag(:what, params[:what], placeholder: "What", class: "form-control mb-3", id: "nameBusiness") %>
+    <%= select_tag :what,
+                    options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
+                    { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
     <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "nameBusiness") %>
     <%= text_field_tag(:tags, params[:tags], placeholder: "Tags", class: "form-control mb-3", id: "nameBusiness") %>
-    <%= select_tag :languages, options_for_select([["Languages", "Languages"], ["English", "English"], ["German", "German"], ["French", "French"]]), { class: "form-select mb-3", id: "typeBusinessReg" } %>
+    <%= text_field_tag(:languages, params[:languages], placeholder: "Languages", class: "form-control mb-3", id: "typeBusinessReg") %>
 
     <span class="input-group-text mb-3">
       <%= button_tag(type: "submit", class: "btn btn-primary btn-small submitBtn") do %>
@@ -17,7 +19,9 @@
 <%= form_tag(businesses_path, method: :get, class: "searchForm searchMobile") do %>
   <div class="row">
     <div class=" mb-3">
-      <%= text_field_tag(:what, params[:what], placeholder: "What", class: "form-control mb-3", id: "nameBusiness") %>
+      <%= select_tag :what,
+                      options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
+                      { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
     </div>
   </div>
 
@@ -34,7 +38,7 @@
 
   <div class="row">
     <div class=" mb-3">
-      <%= select_tag :languages, options_for_select([["Languages", "Languages"], ["English", "English"], ["German", "German"], ["French", "French"]]), { class: "form-select mb-3", id: "typeBusinessReg" } %>
+      <%= text_field_tag(:languages, params[:languages], placeholder: "Languages", class: "form-control mb-3", id: "typeBusinessReg") %>
     </div>
   </div>
 
