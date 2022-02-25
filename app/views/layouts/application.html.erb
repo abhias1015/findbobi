@@ -68,11 +68,8 @@
           <div class="col-md-3 mt-5">
             <h3>About us</h3>
             <ul>
-              <li>Who we are</li>
-              <li>Contact us</li>
-              <li>Legal notice</li>
-              <li>Terms of use</li>
-              <li>Privacy statement</li>
+              <li><%= link_to "Who is BOBI", introduction_contact_requests_path, class: "footer-link" %></li>
+              <li><%= link_to "Contact us", new_contact_request_path, class: "footer-link" %></li>
             </ul>
           </div>
         </div>

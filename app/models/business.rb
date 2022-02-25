@@ -21,11 +21,11 @@ class Business < ApplicationRecord
                         :numericality => true,
                         :length => { :minimum => 10, :maximum => 15 }
 
-
   def tags_and_language_names
     tags&.map(&:name) + languages.map(&:name)
   end
 
+  # TODO: make this method more effective
   def self.list_records(what, where, tags, languages)
     what = BusinessType.where(name: what)
     tags = tags&.split(", ") || []

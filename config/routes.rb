@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :contact_requests do
+  resources :contact_requests, :path => "contact" do
     collection do
-      get :accepted
+      get :accepted, :introduction
     end
   end
 

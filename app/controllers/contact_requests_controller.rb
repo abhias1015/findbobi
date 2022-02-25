@@ -34,9 +34,8 @@ class ContactRequestsController < ApplicationController
     end
   end
 
-  def accepted
-
-  end
+  def accepted;end
+  def introduction;end
 
   # PATCH/PUT /contact_requests/1 or /contact_requests/1.json
   def update
