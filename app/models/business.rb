@@ -29,9 +29,14 @@ class Business < ApplicationRecord
   def self.list_records(what, where, tags, languages)
     what = BusinessType.where(name: what)
     tags = tags&.split(", ") || []
-    where = where&.split(", ") || []
-    tagged_objects = tagged_with((where + tags), :any => true)
+    languages = languages&.split(", ") || []
 
-    tagged_objects.where(business_type: what)
+    search_result = Business.all
+    search_result = search_result.where(location: where) if where.present?
+    tagged_search_result = search_result.tagged_with((languages + tags), :any => true)
+    search_result = tagged_search_result if tagged_search_result.present?
+    search_result = search_result.where(business_type: what) if what.present?
+
+    search_result
   end
 end
