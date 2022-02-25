@@ -14,12 +14,7 @@ class BusinessesController < InheritedResources::Base
   def home
   end
 
-  def search
-    console
-  end
-
   def accepted
-
   end
 
   def new

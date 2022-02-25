@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       get :accepted
     end
   end
-  
+
   resources :businesses do
     collection do
-      get :home, :search, :accepted
+      get :home, :accepted
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
