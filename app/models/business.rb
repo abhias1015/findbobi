@@ -28,8 +28,8 @@ class Business < ApplicationRecord
 
   def self.list_records(what, where, tags, languages)
     what = BusinessType.where(name: what)
-    tags = tags.split(", ")
-    where = where.split(", ")
+    tags = tags&.split(", ") || []
+    where = where&.split(", ") || []
     tagged_objects = tagged_with((where + tags), :any => true)
 
     tagged_objects.where(business_type: what)
