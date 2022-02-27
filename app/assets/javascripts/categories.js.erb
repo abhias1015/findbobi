@@ -5,7 +5,7 @@ var doctors_image = "<%= asset_path('doctors.jpeg') %>"
 var salons_image = "<%= asset_path('salons.jpeg') %>"
 var groceries_image = "<%= asset_path('groceries.jpeg') %>"
 
-const categoriesData = [
+var categoriesData = [
   {
     id:0,
     name: 'Restaurants',
@@ -39,7 +39,7 @@ const categoriesData = [
 
 ]
 
-const printCategories = (category, catCount) => {
+var printCategories = (category, catCount) => {
   for (data in category) {
     const categoryData = category[data]
       document.querySelector('.category-row.row-'+catCount).innerHTML += `
@@ -50,7 +50,7 @@ const printCategories = (category, catCount) => {
     }
   }
 
-const setCategories = ( categories ) => {
+var setCategories = ( categories ) => {
   let catCount = 0
   while(categories.length){
     catCount++
