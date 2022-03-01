@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :businesses do
+  resources :businesses, only: [:index, :new, :create] do
     collection do
       get :home, :accepted
     end

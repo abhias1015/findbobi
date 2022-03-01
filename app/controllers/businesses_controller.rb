@@ -11,11 +11,9 @@ class BusinessesController < InheritedResources::Base
     end
   end
 
-  def home
-  end
+  def home;end
 
-  def accepted
-  end
+  def accepted;end
 
   def new
     @business = Business.new
