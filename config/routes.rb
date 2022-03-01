@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :contact_requests, :path => "contact" do
+  resources :contact_requests, path: "contact", only: [:new, :create] do
     collection do
       get :accepted, :introduction
     end
