@@ -57,11 +57,12 @@
         </div>
 
         <div class="row">
-          <div class="form-floating mb-3 taggedInput">
-            <%= form.text_field :tag_list, class: "form-control #{business_invalid_class?(:tags)}", id: "tagBusinessReg" %>
+          <div class="form-floating mb-3 taggedInput" data-controller= "tag" >
+            <%= form.text_field :tag_list, class: "form-control #{business_invalid_class?(:tags)}", id: "tagBusinessReg", data: { "action": "focus->tag#suggest" } %>
             <label for="tagBusinessReg">Attribute/Community</label>
             <div class="mt-3"id="helpBox">Hey there! Your business atributes will be treated like tags. You can separate them by
               comma or space.</div>
+            <div data-tag-target="suggestedTags" id="suggestedTagsID"></div>
 
             <% if business_error_message(:tags).present? %>
               <div class="col-12 order-first order-md-0 my-5 my-md-0">
