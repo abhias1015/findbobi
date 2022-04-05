@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :businesses, only: [:index, :new, :create] do
     collection do
-      get :home, :accepted
+      get :home, :accepted, :suggested_tags
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

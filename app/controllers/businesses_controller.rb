@@ -15,6 +15,14 @@ class BusinessesController < InheritedResources::Base
 
   def accepted;end
 
+  def suggested_tags
+    @communities = Business::COMMUNITIES
+
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   def new
     @business = Business.new
     @business_types = BusinessType.all
