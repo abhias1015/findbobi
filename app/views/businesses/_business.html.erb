@@ -1,6 +1,6 @@
 <div class="col-md-6 col-lg-4 item">
   <div class="box">
-    <% if business.avatar.attached? %>
+    <% if Rails.env.development? && business.avatar.attached? %>
       <img src="<%= url_for(business.avatar) %>" class="rounded-circle" alt="...">
     <% else %>
       <%= image_tag("avatar_green_bg.png", :alt => "avatar", :class => "rounded-circle") %>
