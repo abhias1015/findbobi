@@ -1,4 +1,6 @@
 class BusinessType < ApplicationRecord
   has_many :businesses
-  validates :name, presence: true
+  belongs_to :business_group
+
+  validates :name, :business_group, presence: true
 end
