@@ -1,4 +1,5 @@
 require 'csv'
+
 class CsvDb
   class << self
     def convert_save(model_name, csv_data)
