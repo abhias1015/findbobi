@@ -13,6 +13,8 @@ class Business < ApplicationRecord
 
   acts_as_taggable_on :languages, :tags
 
+  before_validation :smart_add_url_protocol
+
   validates :name, :email, :location, :website, :instagram, :opens_at, :closes_at, :business_type_id, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -38,5 +40,16 @@ class Business < ApplicationRecord
     search_result = search_result.where(business_type: what) if what.present?
 
     search_result
+  end
+
+  protected
+
+  def smart_add_url_protocol
+    unless website[/\Ahttp:\/\//] || website[/\Ahttps:\/\//]
+      self.website = "https://#{website}"
+    end
+    unless instagram[/\Ahttp:\/\//] || instagram[/\Ahttps:\/\//]
+      self.instagram = "https://#{instagram}"
+    end
   end
 end
