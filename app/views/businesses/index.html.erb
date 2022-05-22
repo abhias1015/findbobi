@@ -2,14 +2,11 @@
   <div class="container">
     <%= render :partial => 'search_form' %>
   </div>
-  <div class="team-boxed">
-    <div class="container">
-      <% @businesses.in_groups_of(3).each do |business_chunk| %>
-        <div class="row people">
-          <% business_chunk.each do |business| %>
-            <%= render business if business.present? %>
-          <% end %>
-        </div>
+
+  <div class="container cnontainer-body">
+    <div class="row content-row">
+      <% @businesses.each do |business| %>
+        <%= render business if business.present? %>
       <% end %>
     </div>
   </div>
@@ -17,144 +14,145 @@
 
 <style>
   body {
-    height: 100vh;
+    min-height: 100vh;
+  }
+
+  a {
+    color: #D3D3D3;
   }
 
   .body {
     background-color:#FFDE2F;
   }
 
-  .main {
-    margin-top: 50px;
-  }
-
-  .team-boxed {
-    color: #313437;
-    background-color: #FFDE2F;
-  }
-
-  .team-boxed p {
-    color:#7d8285;
-  }
-
-  .team-boxed .item {
-    text-align: center;
+  .cnontainer-body{
+    font-family: 'Inter', sans-serif;
     align-items: center;
+    justify-content: center;
+    background-color:#fbdc2e;
   }
 
-  .team-boxed .item .box {
-    padding:24px;
-    background-color: #FDFDFD;
-    margin-bottom:30px;
-    border-radius: 16px;
-  }
-
-  .team-boxed .item .text_block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    margin: 24px 0px;
-  }
-
-  .team-boxed .item .name {
-    margin-top:28px;
-    margin-left:12px;
-    margin-bottom:8px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 16px;
-    color:#212121;
-  }
-
-  .team-boxed .item .title {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    margin-left:12px;
-    color:#212121;
-  }
-
-  .team-boxed .item img {
-    width:100px;
-    height:100px;
-  }
-
-  .team-boxed .social {
+  .social {
     align-items: flex-start;
   }
 
-  .team-boxed .social a {
-    text-decoration:none;
-  }
-
-  .team-boxed .social i:hover {
+  .social i:hover {
     background-color:#232323;
     color:#fff;
     text-decoration:none;
   }
 
-  .team-boxed i {
-    display: inline-block;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 6px;
-
-    position: static;
-    width: 36px;
-    height: 36px;
-    left: 0px;
-    top: 0px;
-
-    /* Edge Black 20% */
-
-    border: 1px solid #D3D3D3;
-    color: #212121;
-    box-sizing: border-box;
-    border-radius: 36px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px 8px;
-  }
-  .team-boxed i:hover {
-    background-color:#6ab04c;
-    color:#fff;
+  .content-row>* {
+    display: contents;
   }
 
-  .team-boxed .tags {
-    margin-top:15px;
+  .main {
+    margin-top: 50px;
+  }
+
+  .col-sm{
+    border: 1px solid black;
+    margin-top: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  .card{
+    background-color: rgb(255, 255, 255);
+    border-radius: 05%;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .card img{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 50px;
+  }
+
+  .star{
+    color: gold;
+  }
+  .card-title i{
+    color: yellow;
+  }
+  .r-num{
+    color: black;
+    font-weight: 400;
+  }
+  .card-title{
+    margin-top: -10px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .card-text{
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .icon{
+    margin-top: 15px;
+  }
+
+  .icon i{
+
+    font-size: 14px;
+    border: 1px solid rgb(197, 191, 191);
+    background-color: white;
+    margin: 3px;
+    padding: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-weight: 900;
+
+  }
+  .icon-1{
+    border: 1px solid rgb(255, 255, 255);
+    height: 30px;
     align-items: flex-start;
   }
+  .chip-b{
+    margin-top: 30px;
+    text-align: start;
+  }
+  .chip{
+    margin-top: 10px;
+    line-height: 20px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+    justify-content: space-around;
+    height: 30px;
+    font-size: 13px;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    margin-left: 0px;
+    background-color: rgb(235, 235, 235);
+    font-weight: 500;
+  }
 
-.team-boxed .tag {
-  align-items: flex-start;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 16px 8px 8px;
-  background: #F4F4F4;
-  border-radius: 54px;
+  .c-1{
+    margin-top: 10px;
+    line-height: 20px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    justify-content: space-around;
+    height: 30px;
+    font-size: 14px;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    margin-left: 0px;
+    background-color: rgb(235, 235, 235);
+    font-weight: 500;
 
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 16px;
-
-  color: #212121;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 4px;
-}
-
+  }
 </style>
