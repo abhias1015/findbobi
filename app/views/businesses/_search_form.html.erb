@@ -2,7 +2,7 @@
   <div class="input-group mb-3 flex-nowrap justify-content-center">
     <%= select_tag :what,
                     options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
-                    { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
+                    { class: "form-select mb-3", id: "nameBusiness", prompt: "Select a Service" } %>
     <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "nameBusiness") %>
     <%= text_field_tag(:tags, params[:tags], placeholder: "Attribute/Community", class: "form-control mb-3", id: "nameBusiness") %>
     <%= text_field_tag(:languages, params[:languages], placeholder: "Languages", class: "form-control mb-3", id: "typeBusinessReg") %>
@@ -21,7 +21,7 @@
     <div class=" mb-3">
       <%= select_tag :what,
                       options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
-                      { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
+                      { class: "form-select mb-3", id: "nameBusiness", prompt: "Select a Service" } %>
     </div>
   </div>
 
