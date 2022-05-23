@@ -1,7 +1,7 @@
 <%= form_tag(businesses_path, method: :get, class: "searchForm searchFull") do %>
   <div class="input-group mb-3 flex-nowrap justify-content-center">
     <%= select_tag :what,
-                    options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
+                    option_groups_from_collection_for_select(BusinessGroup.all, :business_types, :name, :name, :name, params[:what]),
                     { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
     <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "nameBusiness") %>
     <%= text_field_tag(:tags, params[:tags], placeholder: "Attribute/Community", class: "form-control mb-3", id: "nameBusiness") %>
@@ -20,7 +20,7 @@
   <div class="row">
     <div class=" mb-3">
       <%= select_tag :what,
-                      options_for_select(BusinessType.all.map { |bt| [bt.name, bt.name] }, selected: params[:what]),
+                      option_groups_from_collection_for_select(BusinessGroup.all, :business_types, :name, :name, :name, params[:what]),
                       { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
     </div>
   </div>
