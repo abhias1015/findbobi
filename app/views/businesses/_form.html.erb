@@ -44,7 +44,7 @@
 
         <div class="row">
           <div class="form-floating mb-3">
-            <%= form.select :business_type_id, BusinessType.all.map { |bt| [bt.name, bt.id] }, {}, { class: "form-select #{business_invalid_class?(:business_type)}", id: "typeBusinessReg" } %>
+            <%= form.grouped_collection_select(:business_type_id, BusinessGroup.all, :business_types, :name, :id, :name, {}, { class: "form-select #{business_invalid_class?(:business_type)}", id: "typeBusinessReg" } ) %>
             <%= form.label :business_type_id, style: "display: block" %>
 
             <% if business_error_message(:business_type).present? %>
