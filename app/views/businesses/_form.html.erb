@@ -28,17 +28,17 @@
           </div>
         </div>
 
-        <div class="row owner">
-          <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
-            <small class="ml-5">Are you the owner?</small>
-          </div>
-          <div class="col-lg-5 col-sm-auto form-check mb-3">
-            <%# <%= form.radio_button :is_owner, 0, id: 'ownerYes', class: 'btn-check', checked: business.is_owner %>
-            <%# <%= form.radio_button :is_owner, 1, id: 'ownerNo', class: 'btn-check' %>
-            <input type="radio" class="btn-check" name="options" id="ownerYes" autocomplete="off" checked>
-            <label class="btn btn-outline-dark btn-sm radioBtn" for="ownerYes">YES</label>
-            <input type="radio" class="btn-check" name="options" id="ownerNo" autocomplete="off">
-            <label class="btn btn-outline-dark btn-sm radioBtn" for="ownerNo">NO</label>
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.text_field :owner_name, class: "form-control #{business_invalid_class?(:owner_name)}", id: "nameBusiness" %>
+            <%= form.label "Business Owner Name" %>
+
+            <% if business_error_message(:owner_name).present? %>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= business_error_message(:owner_name) %> </span>
+              </div>
+            <% end %>
           </div>
         </div>
 
@@ -75,53 +75,12 @@
         <div class="row">
           <div class="form-floating mb-3">
             <%= form.text_field :language_list, class: "form-control #{business_invalid_class?(:languages)}", id: "langSpokenReg" %>
-            <%= form.label :language_list %>
+            <%= form.label "Languages you speak" %>
 
             <% if business_error_message(:languages).present? %>
               <div class="col-12 order-first order-md-0 my-5 my-md-0">
                 <%= image_tag("error_icon.svg", :alt => "error_icon") %>
                 <span class="help-block errorMessage"> <%= business_error_message(:languages) %> </span>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="row g-0">
-          <div class="input-group mb-3 flex-wrap">
-            <div class="form-floating col" >
-              <%= form.time_field :opens_at, class: "form-control #{business_invalid_class?(:opens_at)}", id: "startHour" %>
-              <label for="startHour">Open from</label>
-
-              <% if business_error_message(:opens_at).present? %>
-                <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                  <%= image_tag("error_icon.svg", :alt => "error_icon") %>
-                  <span class="help-block errorMessage"> <%= business_error_message(:opens_at) %> </span>
-                </div>
-              <% end %>
-            </div>
-            <div class="form-floating col">
-              <%= form.time_field :closes_at, class: "form-control #{business_invalid_class?(:name)}", id: "closeHour" %>
-              <label for="closeHour">to</label>
-
-              <% if business_error_message(:closes_at).present? %>
-                <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                  <%= image_tag("error_icon.svg", :alt => "error_icon") %>
-                  <span class="help-block errorMessage"> <%= business_error_message(:closes_at) %> </span>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="form-floating mb-3">
-            <%= form.text_field :location, class: "form-control #{business_invalid_class?(:location)}", id: "locationReg" %>
-            <%= form.label :location %>
-
-            <% if business_error_message(:location).present? %>
-              <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
-                <span class="help-block errorMessage"> <%= business_error_message(:location) %> </span>
               </div>
             <% end %>
           </div>
@@ -155,31 +114,214 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="form-floating mb-3">
-            <%= form.text_field :website, class: "form-control #{business_invalid_class?(:website)}", id: "webReg" %>
-            <%= form.label :website %>
+        <div class="row owner">
+          <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
+            <small class="ml-5">Are you the owner?</small>
+          </div>
 
-            <% if business_error_message(:website).present? %>
-              <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
-                <span class="help-block errorMessage"> <%= business_error_message(:website) %> </span>
-              </div>
-            <% end %>
+          <div class="col-lg-5 col-sm-auto form-check mb-3">
+            <div data-toggle="buttons-radio">
+              <%= form.radio_button :is_owner, true, id:"ownerYes", checked: true, style:"display:none;", class: "btn-check" %>
+              <label for="ownerYes" class="btn btn-outline-dark btn-sm radioBtn">Yes</label>
+
+              <%= form.radio_button :is_owner, false, id:"ownerNo", style:"display:none;", class: "btn-check" %>
+              <label for="ownerNo" class="btn btn-outline-dark btn-sm radioBtn">No</label>
+            </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="form-floating mb-3">
-            <%= form.text_field :instagram, class: "form-control #{business_invalid_class?(:instagram)}", id: "socialMediaReg" %>
-            <%= form.label :social_media %>
+        <div class="row owner">
+          <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
+            <small class="ml-5">Is it an online business?</small>
+          </div>
 
-            <% if business_error_message(:instagram).present? %>
-              <div class="col-12 order-first order-md-0 my-5 my-md-0">
-                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
-                <span class="help-block errorMessage"> <%= business_error_message(:instagram) %> </span>
+          <div class="col-lg-5 col-sm-auto form-check mb-3">
+            <div data-toggle="buttons-radio">
+              <%= form.radio_button :is_online, true, id:"onlineAvailability", style:"display:none;", class: "btn-check" %>
+              <label for="onlineAvailability" class="btn btn-outline-dark btn-sm radioBtn">Yes</label>
+
+              <%= form.radio_button :is_online, false, id:"onlineAvailabilityNo", checked: true, style:"display:none;", class: "btn-check" %>
+              <label for="onlineAvailabilityNo" class="btn btn-outline-dark btn-sm radioBtn">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="hide_box" id="onlineBusinessFields">
+          <div class="row">
+            <div class="form-floating mb-3">
+              <%= form.text_field :website, class: "form-control #{business_invalid_class?(:website)}", id: "webReg" %>
+              <%= form.label :website %>
+
+              <% if business_error_message(:website).present? %>
+                <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                  <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                  <span class="help-block errorMessage"> <%= business_error_message(:website) %> </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-floating mb-3">
+              <%= form.text_field :instagram, class: "form-control #{business_invalid_class?(:instagram)}", id: "socialMediaReg" %>
+              <%= form.label :social_media %>
+
+              <% if business_error_message(:instagram).present? %>
+                <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                  <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                  <span class="help-block errorMessage"> <%= business_error_message(:instagram) %> </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row owner">
+          <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
+            <small class="ml-5">Is it an offline business?</small>
+          </div>
+
+          <div class="col-lg-5 col-sm-auto form-check mb-3">
+            <div data-toggle="buttons-radio">
+              <%= form.radio_button :is_offline, true, id:"offlineAvailability", style:"display:none;", class: "btn-check" %>
+              <label for="offlineAvailability" class="btn btn-outline-dark btn-sm radioBtn">Yes</label>
+
+              <%= form.radio_button :is_offline, false, id:"offlineAvailabilityNo", checked: true, style:"display:none;", class: "btn-check" %>
+              <label for="offlineAvailabilityNo" class="btn btn-outline-dark btn-sm radioBtn">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="hide_box" id="offlineBusinessFields">
+          <div class="row g-0">
+            <div class="input-group mb-3 flex-wrap">
+              <div class="form-floating col" >
+                <%= form.time_field :opens_at, class: "form-control #{business_invalid_class?(:opens_at)}", id: "startHour" %>
+                <label for="startHour">Opening Time</label>
+
+                <% if business_error_message(:opens_at).present? %>
+                  <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                    <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                    <span class="help-block errorMessage"> <%= business_error_message(:opens_at) %> </span>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+              <div class="form-floating col">
+                <%= form.time_field :closes_at, class: "form-control #{business_invalid_class?(:name)}", id: "closeHour" %>
+                <label for="closeHour">Closing Time</label>
+
+                <% if business_error_message(:closes_at).present? %>
+                  <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                    <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                    <span class="help-block errorMessage"> <%= business_error_message(:closes_at) %> </span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row owner">
+            <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
+              <small class="ml-5">Is this business open on Saturday?</small>
+            </div>
+
+            <div class="col-lg-5 col-sm-auto form-check mb-3">
+              <div data-toggle="buttons-radio">
+                <%= form.radio_button :is_open_on_saturday, true, id:"saturdayAvailability", style:"display:none;", class: "btn-check" %>
+                <label for="saturdayAvailability" class="btn btn-outline-dark btn-sm radioBtn">Yes</label>
+
+                <%= form.radio_button :is_open_on_saturday, false, id:"saturdayAvailabilityNo", checked: true, style:"display:none;", class: "btn-check" %>
+                <label for="saturdayAvailabilityNo" class="btn btn-outline-dark btn-sm radioBtn">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="hide_box" id="saturdayTimeFields">
+            <div class="row g-0">
+              <div class="input-group mb-3 flex-wrap">
+                <div class="form-floating col" >
+                  <%= form.time_field :saturday_opening_time, class: "form-control #{business_invalid_class?(:saturday_opening_time)}", id: "startHour" %>
+                  <label for="startHour">Saturday Opening Time</label>
+
+                  <% if business_error_message(:saturday_opening_time).present? %>
+                    <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                      <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                      <span class="help-block errorMessage"> <%= business_error_message(:saturday_opening_time) %> </span>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="form-floating col">
+                  <%= form.time_field :saturday_closing_time, class: "form-control #{business_invalid_class?(:saturday_closing_time)}", id: "closeHour" %>
+                  <label for="closeHour">Saturday Closing Time</label>
+
+                  <% if business_error_message(:saturday_closing_time).present? %>
+                    <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                      <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                      <span class="help-block errorMessage"> <%= business_error_message(:saturday_closing_time) %> </span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row owner">
+            <div class='col-xxl-3 col-lg-4 col-md-6 col-sm-7 mb-2'>
+              <small class="ml-5">Is this business open on Sunday?</small>
+            </div>
+
+            <div class="col-lg-5 col-sm-auto form-check mb-3">
+              <div data-toggle="buttons-radio">
+                <%= form.radio_button :is_open_on_sunday, true, id:"sundayAvailability", style:"display:none;", class: "btn-check" %>
+                <label for="sundayAvailability" class="btn btn-outline-dark btn-sm radioBtn">Yes</label>
+
+                <%= form.radio_button :is_open_on_sunday, false, id:"sundayAvailabilityNo", checked: true, style:"display:none;", class: "btn-check" %>
+                <label for="sundayAvailabilityNo" class="btn btn-outline-dark btn-sm radioBtn">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="hide_box" id="sundayTimeFields">
+            <div class="row g-0">
+              <div class="input-group mb-3 flex-wrap">
+                <div class="form-floating col" >
+                  <%= form.time_field :sunday_opening_time, class: "form-control #{business_invalid_class?(:sunday_opening_time)}", id: "startHour" %>
+                  <label for="startHour">Sunday Opening Time</label>
+
+                  <% if business_error_message(:sunday_opening_time).present? %>
+                    <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                      <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                      <span class="help-block errorMessage"> <%= business_error_message(:sunday_opening_time) %> </span>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="form-floating col">
+                  <%= form.time_field :sunday_closing_time, class: "form-control #{business_invalid_class?(:sunday_closing_time)}", id: "closeHour" %>
+                  <label for="closeHour">Sunday Closing Time</label>
+
+                  <% if business_error_message(:sunday_closing_time).present? %>
+                    <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                      <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                      <span class="help-block errorMessage"> <%= business_error_message(:sunday_closing_time) %> </span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-floating mb-3">
+              <%= form.text_field :location, class: "form-control #{business_invalid_class?(:location)}", id: "locationReg" %>
+              <%= form.label :location %>
+
+              <% if business_error_message(:location).present? %>
+                <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                  <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                  <span class="help-block errorMessage"> <%= business_error_message(:location) %> </span>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
 
@@ -197,15 +339,52 @@
     </div>
   </div>
 </div>
+
 <script>
   document.body.style.backgroundColor ="#FF5CC8"
   document.getElementById("nav-link-reg").classList.add('active')
+
+  document.getElementById("onlineAvailability").onclick = function(){
+    document.getElementById("onlineBusinessFields").classList.remove('hide_box')
+  }
+
+  document.getElementById("onlineAvailabilityNo").onclick = function(){
+    document.getElementById("onlineBusinessFields").classList.add('hide_box')
+  }
+
+  document.getElementById("offlineAvailability").onclick = function(){
+    document.getElementById("offlineBusinessFields").classList.remove('hide_box')
+  }
+
+  document.getElementById("offlineAvailabilityNo").onclick = function(){
+    document.getElementById("offlineBusinessFields").classList.add('hide_box')
+  }
+
+  document.getElementById("saturdayAvailability").onclick = function(){
+    document.getElementById("saturdayTimeFields").classList.remove('hide_box')
+  }
+
+  document.getElementById("saturdayAvailabilityNo").onclick = function(){
+    document.getElementById("saturdayTimeFields").classList.add('hide_box')
+  }
+
+  document.getElementById("sundayAvailability").onclick = function(){
+    document.getElementById("sundayTimeFields").classList.remove('hide_box')
+  }
+
+  document.getElementById("sundayAvailabilityNo").onclick = function(){
+    document.getElementById("sundayTimeFields").classList.add('hide_box')
+  }
 </script>
 
 
 <style media="screen">
   .main {
     margin-top: 50px;
+  }
+
+  .hide_box {
+    display:none;
   }
 
   .form-select {

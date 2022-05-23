@@ -15,10 +15,10 @@ class Business < ApplicationRecord
 
   before_validation :smart_add_url_protocol
 
-  validates :name, :email, :location, :website, :instagram, :opens_at, :closes_at, :business_type_id, presence: true
+  validates :name, :owner_name, :email, :business_type_id, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :website, :instagram, url: { no_local: true }
+  validates :website, :instagram, url: { no_local: true, allow_nil: true, allow_blank: true }
   validates :telephone, :presence => true,
                         :numericality => true,
                         :length => { :minimum => 10, :maximum => 15 }
@@ -46,10 +46,10 @@ class Business < ApplicationRecord
 
   def smart_add_url_protocol
     unless website[/\Ahttp:\/\//] || website[/\Ahttps:\/\//]
-      self.website = "https://#{website}"
+      self.website = "https://#{website}" if website.present?
     end
     unless instagram[/\Ahttp:\/\//] || instagram[/\Ahttps:\/\//]
-      self.instagram = "https://#{instagram}"
+      self.instagram = "https://#{instagram}" if instagram.present?
     end
   end
 end

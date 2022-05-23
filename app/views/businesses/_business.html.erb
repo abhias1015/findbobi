@@ -10,14 +10,18 @@
         <i class="bi bi-star-fill"></i>
         <i class="bi bi-star-fill"></i>
         <i class="bi bi-star-fill"></i>
-        <span class="r-num">(30)</span>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <span class="r-num">(0)</span>
       </ul>
-      <h5 class="card-title"><%= business.name %> <br>
+      <h5 class="card-title">
+        <%= business.name %> <br>
+        <%= business.owner_name %> <br>
         <span class="card-text"><%= business.business_type&.name %> - N/A km</span>
       </h5>
       <div class="icon-1 social">
         <ul class="icon">
-          <a href=<%= "tel:#{business.email}" %>><i class="bi bi-telephone"></i></a>
+          <a href=<%= "tel:#{business.telephone}" %>><i class="bi bi-telephone"></i></a>
           <a href=<%= "mailto:#{business.email}" %>><i class="bi bi-envelope"></i></a>
           <a href=<%= business.website %> target="_blank"><i class="bi bi-globe"></i></a>
           <a href="#"><i class="bi bi-arrow-90deg-right"></i></a>

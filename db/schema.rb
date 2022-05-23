@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_30_054151) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_125909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +98,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_30_054151) do
     t.datetime "updated_at", null: false
     t.float "lat"
     t.float "lng"
+    t.string "owner_name"
+    t.boolean "is_online"
+    t.boolean "is_offline"
+    t.boolean "is_open_on_saturday"
+    t.boolean "is_open_on_sunday"
+    t.time "saturday_opening_time"
+    t.time "saturday_closing_time"
+    t.time "sunday_opening_time"
+    t.time "sunday_closing_time"
     t.index ["business_type_id"], name: "index_businesses_on_business_type_id"
     t.index ["lat"], name: "index_businesses_on_lat"
     t.index ["lng"], name: "index_businesses_on_lng"
