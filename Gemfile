@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # ActiveAdmin solution here: https://github.com/activeadmin/activeadmin/issues/7196
-gem 'activeadmin', github: 'tagliala/activeadmin', branch: 'feature/railties-7' # FIXME: revert to stable
+gem 'activeadmin'
 
 gem 'arbre', github: 'activeadmin/arbre' # FIXME: remove
 gem 'inherited_resources', github: 'activeadmin/inherited_resources' # FIXME: remove
