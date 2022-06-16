@@ -3,7 +3,7 @@
     <%= select_tag :what,
                     option_groups_from_collection_for_select(BusinessGroup.all, :business_types, :name, :name, :name, params[:what]),
                     { class: "form-select mb-3", id: "nameBusiness", prompt: "What" } %>
-    <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "nameBusiness") %>
+    <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "ads-inputs") %>
     <%= text_field_tag(:tags, params[:tags], placeholder: "Attribute/Community", class: "form-control mb-3", id: "nameBusiness") %>
     <%= text_field_tag(:languages, params[:languages], placeholder: "Languages", class: "form-control mb-3", id: "typeBusinessReg") %>
 
@@ -27,7 +27,7 @@
 
   <div class="row">
     <div class=" mb-3">
-      <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "nameBusiness") %>
+      <%= text_field_tag(:where, params[:where], placeholder: "Where", class: "form-control mb-3", id: "ads-input") %>
     </div>
   </div>
   <div class="row">
@@ -108,3 +108,37 @@
   }
 
 </style>
+
+<script> 
+   function initAutocomplete() {
+      var input = document.getElementById('ads-input');
+      var searchBox = new google.maps.places.SearchBox(input);
+      var markers = [];
+      searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+    
+        if (places.length == 0) {
+          return;
+        }
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+          var icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 26)
+          };
+         if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+      });
+    }
+    
+ </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkwr5rmzY9btU08sQlU9N0qfmo8YmE91Y&libraries=places&callback=initAutocomplete"
+         async defer></script>
